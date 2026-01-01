@@ -24,9 +24,9 @@
 <body>
 
   <!-- Header -->
-  <header class="navbar">
+  <header class="navbar" role="banner">
     <div class="logo">DL</div>
-    <nav>
+    <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -41,7 +41,7 @@
   <main class="contact-page">
 
     <!-- Contact Hero -->
-    <section class="contact-hero reveal">
+    <section class="contact-hero reveal container narrow">
       <h1>Let’s Connect</h1>
       <p>
         Whether it’s collaboration, opportunities, or a meaningful conversation —
@@ -50,7 +50,7 @@
     </section>
 
     <!-- Contact Grid -->
-    <section class="contact-grid">
+    <section class="contact-grid container">
 
       <!-- Contact Info -->
       <div class="contact-info reveal">
@@ -62,33 +62,31 @@
 
         <ul class="contact-list">
           <li>
-            <i class="fa-solid fa-envelope"></i>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
             <a href="mailto:mythx0x01@gmail.com">mythx0x01@gmail.com</a>
           </li>
           <li>
-            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
             <a href="https://www.linkedin.com/in/dhawal-lamba" target="_blank" rel="noopener">LinkedIn</a>
           </li>
           <li>
-            <i class="fa-brands fa-github"></i>
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
             <a href="https://github.com/mythakadhawal" target="_blank" rel="noopener">GitHub</a>
           </li>
         </ul>
-    </div>
+      </div>
 
     </section>
 
   </main>
 
   <!-- Footer -->
-   <center>
-  <footer class="footer">
-    <p>© 2025 Dhawal Lamba | Let’s build something meaningful</p>
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>© 2025 Dhawal Lamba | Let’s build something meaningful</p>
+    </div>
   </footer>
-  </center>
 
   <script src="main.js"></script>
 </body>
 </html>
-
-
