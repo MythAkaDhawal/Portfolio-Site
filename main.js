@@ -1,5 +1,3 @@
-
-
 // Portfolio JavaScript - Main Module
 // Handles typing effect, scroll animations, and interactive enhancements
 
@@ -11,33 +9,26 @@ const roles = [
   "Tech Community Builder"
 ];
 
-const typedText = document.getElementById("typed-text");
-
+let typedText = null;
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-let typeTimeout;
+let typeTimeout = null;
 
 // Utility Functions
 const debounce = (func, wait) => {
   let timeout;
   return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
     clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
+    timeout = setTimeout(() => func.apply(this, args), wait);
   };
 };
 
 const throttle = (func, limit) => {
   let inThrottle;
-  return function() {
-    const args = arguments;
-    const context = this;
+  return function(...args) {
     if (!inThrottle) {
-      func.apply(context, args);
+      func.apply(this, args);
       inThrottle = true;
       setTimeout(() => inThrottle = false, limit);
     }
@@ -46,24 +37,38 @@ const throttle = (func, limit) => {
 
 // Enhanced Typing Effect with smoother timing
 function typeEffect() {
-  if (!typedText) return; // Safety check for missing element
+  if (!typedText) return;
 
   const currentRole = roles[roleIndex];
+
+  // Prevent multiple timeouts stacking
+  if (typeTimeout) {
+    clearTimeout(typeTimeout);
+    typeTimeout = null;
+  }
 
   if (!isDeleting) {
     // Typing phase
     typedText.textContent = currentRole.substring(0, charIndex + 1);
     charIndex++;
     if (charIndex === currentRole.length) {
-      typeTimeout = setTimeout(() => (isDeleting = true), 1400);
+      // pause at end before deleting
+      typeTimeout = setTimeout(() => {
+        isDeleting = true;
+        typeEffect();
+      }, 1400);
+      return;
     }
   } else {
     // Deleting phase
-    typedText.textContent = currentRole.substring(0, charIndex - 1);
+    typedText.textContent = currentRole.substring(0, Math.max(0, charIndex - 1));
     charIndex--;
     if (charIndex === 0) {
       isDeleting = false;
       roleIndex = (roleIndex + 1) % roles.length;
+      // small pause before typing next role
+      typeTimeout = setTimeout(typeEffect, 300);
+      return;
     }
   }
 
@@ -77,22 +82,21 @@ const observer = new IntersectionObserver(
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
-      } else {
-        // Optional: remove class if not intersecting (for re-triggering)
-        // entry.target.classList.remove("show");
       }
     });
   },
-  { threshold: 0.1 } // Reduced threshold for better triggering with adjusted padding
+  { threshold: 0.12 }
 );
 
 // Smooth Scroll for Anchor Links
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+      // Only handle page-internal anchors
+      const href = this.getAttribute('href');
+      if (!href || href === '#') return;
       e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const target = document.querySelector(targetId);
+      const target = document.querySelector(href);
       if (target) {
         target.scrollIntoView({
           behavior: 'smooth',
@@ -106,13 +110,11 @@ function initSmoothScroll() {
 // Future Hooks for Enhanced Features
 function toggleTheme() {
   // Placeholder for dark/light mode toggle
-  // Implementation: Toggle classes on body, update CSS variables
   console.log('Theme toggle - to be implemented');
 }
 
 function updateNavActive() {
   // Placeholder for navbar active state on scroll
-  // Implementation: Check scroll position, update .active class on nav links
   console.log('Nav active update - to be implemented');
 }
 
@@ -132,8 +134,14 @@ function initAccessibility() {
 
 // Initialize on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
-  // Start typing effect
-  typeEffect();
+  // Acquire typedText after DOM is available
+  typedText = document.getElementById("typed-text");
+
+  // Start typing effect only if element exists
+  if (typedText) {
+    // small initial delay
+    setTimeout(typeEffect, 250);
+  }
 
   // Initialize scroll animations
   document.querySelectorAll(".reveal").forEach((el) => {
@@ -145,14 +153,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initialize accessibility features
   initAccessibility();
-
-  // Future feature hooks (commented out until implemented)
-  // updateNavActive();
-  // toggleTheme();
 });
 
 // Cleanup on page unload (optional, for performance)
 window.addEventListener('beforeunload', () => {
-  if (typeTimeout) clearTimeout(typeTimeout);
+  if (typeTimeout) {
+    clearTimeout(typeTimeout);
+    typeTimeout = null;
+  }
   observer.disconnect();
 });
