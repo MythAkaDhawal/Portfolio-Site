@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dhawal Lamba | AI/ML Portfolio</title>
 
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
@@ -37,16 +37,15 @@
   </script>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome (consistent link used across pages) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" href="style.css" as="style">
 </head>
 
 <body>
@@ -77,9 +76,8 @@
 
         <!-- Typing Text -->
         <h2 class="typing">
-        <span id="typed-text"></span>
+          <span id="typed-text" aria-live="polite"></span>
         </h2>
-
 
         <p class="hero-desc">
           Passionate about building intelligent AI/ML systems, scalable web solutions,
@@ -94,8 +92,8 @@
 
       <!-- Right Visual -->
       <div class="hero-right" aria-hidden="true">
-        <div class="ai-orb"></div>
-        <div class="ai-ring"></div>
+        <div class="ai-orb" aria-hidden="true"></div>
+        <div class="ai-ring" aria-hidden="true"></div>
       </div>
 
     </section>
@@ -149,88 +147,88 @@
         </a>
       </div>
     </section>
-    <!-- ================= PROJECTS HIGHLIGHT ================= -->
-<section class="projects-preview reveal">
-  <div class="container">
-    <h2>Featured Projects</h2>
 
-    <div class="projects-grid">
+    <!-- Projects Highlight -->
+    <section class="projects-preview reveal">
+      <div class="container">
+        <h2>Featured Projects</h2>
 
-      <!-- Project 1 -->
-      <article class="project-card">
-        <h3>Hand Gesture Controlled System</h3>
-        <p class="project-desc">
-          A computer vision based system that uses hand gesture recognition
-          to control system actions, focusing on real-time interaction.
-        </p>
-        <p class="project-tech">
-          <strong>Tech:</strong> Python, OpenCV, Machine Learning
-        </p>
-        <div class="project-links">
-          <a href="#" class="btn secondary">GitHub</a>
-          <a href="projects.html" class="btn primary">Case Study</a>
+        <div class="projects-grid">
+
+          <!-- Project 1 -->
+          <article class="project-card">
+            <h3>Hand Gesture Controlled System</h3>
+            <p class="project-desc">
+              A computer vision based system that uses hand gesture recognition
+              to control system actions, focusing on real-time interaction.
+            </p>
+            <p class="project-tech">
+              <strong>Tech:</strong> Python, OpenCV, Machine Learning
+            </p>
+            <div class="project-links">
+              <a href="#" class="btn secondary">GitHub</a>
+              <a href="projects.html" class="btn primary">Case Study</a>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <h3>AI-Based Resume Portfolio Website</h3>
+            <p class="project-desc">
+              A personal portfolio website designed with AI-assisted workflows,
+              focused on performance, accessibility, and recruiter experience.
+            </p>
+            <p class="project-tech">
+              <strong>Tech:</strong> HTML, CSS, JavaScript
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/mythakadhawal" class="btn secondary" target="_blank" rel="noopener noreferrer">
+                GitHub
+              </a>
+              <a href="projects.html" class="btn primary">Details</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <h3>ML Learning & Experimentation Hub</h3>
+            <p class="project-desc">
+              A structured repository of machine learning experiments,
+              datasets, and model evaluations for continuous learning.
+            </p>
+            <p class="project-tech">
+              <strong>Tech:</strong> Python, Pandas, Scikit-learn
+            </p>
+            <div class="project-links">
+              <a href="#" class="btn secondary">GitHub</a>
+              <a href="projects.html" class="btn primary">Explore</a>
+            </div>
+          </article>
+
         </div>
-      </article>
 
-      <!-- Project 2 -->
-      <article class="project-card">
-        <h3>AI-Based Resume Portfolio Website</h3>
-        <p class="project-desc">
-          A personal portfolio website designed with AI-assisted workflows,
-          focused on performance, accessibility, and recruiter experience.
-        </p>
-        <p class="project-tech">
-          <strong>Tech:</strong> HTML, CSS, JavaScript
-        </p>
-        <div class="project-links">
-          <a href="https://github.com/mythakadhawal" class="btn secondary" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          <a href="projects.html" class="btn primary">Details</a>
-        </div>
-      </article>
-
-      <!-- Project 3 -->
-      <article class="project-card">
-        <h3>ML Learning & Experimentation Hub</h3>
-        <p class="project-desc">
-          A structured repository of machine learning experiments,
-          datasets, and model evaluations for continuous learning.
-        </p>
-        <p class="project-tech">
-          <strong>Tech:</strong> Python, Pandas, Scikit-learn
-        </p>
-        <div class="project-links">
-          <a href="#" class="btn secondary">GitHub</a>
-          <a href="projects.html" class="btn primary">Explore</a>
-        </div>
-      </article>
-
-    </div>
-
-    <a href="projects.html" class="btn secondary">
-      View All Projects →
-    </a>
-  </div>
-</section>
-
+        <a href="projects.html" class="btn secondary">
+          View All Projects →
+        </a>
+      </div>
+    </section>
 
   </main>
 
   <!-- Footer Section -->
-   <center>
   <footer class="footer" role="contentinfo">
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/dhawal-lamba" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-hover="LinkedIn">
-        <i class="fab fa-linkedin" aria-hidden="true"></i>
-      </a>
-      <a href="https://github.com/mythakadhawal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-hover="GitHub">
-        <i class="fab fa-github" aria-hidden="true"></i>
-      </a>
+    <div class="footer-inner">
+      <div class="social-icons" aria-hidden="false">
+        <a href="https://www.linkedin.com/in/dhawal-lamba" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-hover="LinkedIn">
+          <i class="fab fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/mythakadhawal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-hover="GitHub">
+          <i class="fab fa-github" aria-hidden="true"></i>
+        </a>
+      </div>
+      <p>© 2025 Dhawal Lamba | Built with passion & code</p>
     </div>
-    <p>© 2025 Dhawal Lamba | Built with passion & code</p>
   </footer>
-  </center>
 
   <!-- JS -->
   <script src="main.js"></script>
@@ -244,7 +242,3 @@
   </noscript>
 </body>
 </html>
-
-
-
-
