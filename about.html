@@ -13,16 +13,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER (Same as index.html) -->
-  <header class="navbar">
+  <!-- HEADER -->
+  <header class="navbar" role="banner">
     <div class="logo">DL</div>
-    <nav>
+    <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
@@ -34,10 +37,10 @@
   </header>
 
   <!-- MAIN -->
-  <section class="about-page">
+  <main class="about-page">
 
     <!-- ABOUT HERO -->
-    <div class="about-hero reveal">
+    <div class="about-hero reveal container narrow">
       <h1>About Me</h1>
       <p class="about-intro emphasis">
         I’m <strong>Dhawal Lamba</strong> — a builder at heart, a developer by practice,
@@ -46,7 +49,7 @@
     </div>
 
     <!-- JOURNEY -->
-    <div class="about-section reveal">
+    <div class="about-section reveal container">
       <h2>My Journey</h2>
       <p>
         My interest in technology started early — computers, programming,
@@ -68,7 +71,7 @@
     </div>
 
     <!-- MINDSET -->
-    <div class="about-section reveal delay-1">
+    <div class="about-section reveal delay-1 container">
       <h2>How I Think & Build</h2>
       <ul class="mindset-list">
         <li>Learning by building, not just consuming</li>
@@ -79,7 +82,7 @@
     </div>
 
     <!-- LEADERSHIP -->
-    <div class="about-section reveal delay-2">
+    <div class="about-section reveal delay-2 container">
       <h2>Leadership & Community</h2>
       <p>
         As a <strong>Google Student Ambassador</strong>, I represent Google on campus,
@@ -94,7 +97,7 @@
     </div>
 
     <!-- PROJECT PHILOSOPHY -->
-    <div class="about-section reveal delay-3">
+    <div class="about-section reveal delay-3 container">
       <h2>What My Projects Say About Me</h2>
       <p>
         From intelligent systems like gesture-controlled interfaces,
@@ -108,22 +111,22 @@
     </div>
 
     <!-- SIGNATURE -->
-    <div class="about-signature reveal delay-3">
+    <div class="about-signature reveal delay-3 container">
       — Dhawal
     </div>
 
-  </section>
+  </main>
 
   <!-- FOOTER -->
-   <center>
-  <footer class="footer">
-    <p>© 2025 Dhawal Lamba | Built with passion & code</p>
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>© 2025 Dhawal Lamba | Built with passion & code</p>
+    </div>
   </footer>
-</center>
+
   <!-- JS -->
   <script src="main.js"></script>
 
 </body>
 
 </html>
-
