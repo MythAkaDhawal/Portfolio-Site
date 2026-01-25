@@ -592,6 +592,8 @@ a:focus-visible {
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .project-card:hover {
@@ -1155,10 +1157,3 @@ a:focus-visible {
     text-align: center;
   }
 }
-
-
-
-
-
-
-
