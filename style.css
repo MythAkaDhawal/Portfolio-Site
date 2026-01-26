@@ -548,6 +548,36 @@ a:focus-visible {
   margin: 3rem 0;
 }
 
+.skill-pill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.skill-pill .level {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.level.comfortable {
+  background: rgba(79, 124, 255, 0.15);
+  color: #4f7cff;
+}
+
+.level.working {
+  background: rgba(120, 200, 255, 0.15);
+  color: #78c8ff;
+}
+
+.level.foundational {
+  background: rgba(180, 180, 180, 0.15);
+  color: #b0b0b0;
+}
+
 .skill-card {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.06);
