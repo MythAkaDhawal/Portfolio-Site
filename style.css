@@ -1191,3 +1191,31 @@ a:focus-visible {
     text-align: center;
   }
 }
+
+/* ================= THEME TOGGLE ================= */
+
+.theme-toggle {
+  margin-left: 15px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  background: #eee;
+}
+
+/* Light Theme */
+body.light-theme {
+  background: #f5f7fb;
+  color: #111;
+}
+
+body.light-theme .navbar,
+body.light-theme .footer {
+  background: #ffffff;
+}
+
+body.light-theme .skill-pill {
+  background: #e6ebf5;
+  color: #111;
+}
