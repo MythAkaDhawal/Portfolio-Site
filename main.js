@@ -305,27 +305,31 @@ function initAccessibility() {
 
 // ==================== THEME TOGGLE ====================
 function initThemeToggle() {
-  const toggle = document.getElementById("theme-toggle");
-  if (!toggle) return;
+  setTimeout(() => {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
 
-  // Load saved theme
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "light") {
-    document.body.classList.add("light-theme");
-    toggle.textContent = "🌙";
-  }
+    const savedTheme = localStorage.getItem("theme");
 
-  toggle.onclick = () => {
-    document.body.classList.toggle("light-theme");
-
-    if (document.body.classList.contains("light-theme")) {
-      localStorage.setItem("theme", "light");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-theme");
       toggle.textContent = "🌙";
     } else {
-      localStorage.setItem("theme", "dark");
       toggle.textContent = "☀️";
     }
-  };
+
+    toggle.onclick = () => {
+      document.body.classList.toggle("light-theme");
+
+      if (document.body.classList.contains("light-theme")) {
+        localStorage.setItem("theme", "light");
+        toggle.textContent = "🌙";
+      } else {
+        localStorage.setItem("theme", "dark");
+        toggle.textContent = "☀️";
+      }
+    };
+  }, 50);
 }
 
 // ==================== PAGE INITIALIZATION ====================
