@@ -303,6 +303,31 @@ function initAccessibility() {
   });
 }
 
+// ==================== THEME TOGGLE ====================
+function initThemeToggle() {
+  const toggle = document.getElementById("theme-toggle");
+  if (!toggle) return;
+
+  // Load saved theme
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-theme");
+    toggle.textContent = "🌙";
+  }
+
+  toggle.onclick = () => {
+    document.body.classList.toggle("light-theme");
+
+    if (document.body.classList.contains("light-theme")) {
+      localStorage.setItem("theme", "light");
+      toggle.textContent = "🌙";
+    } else {
+      localStorage.setItem("theme", "dark");
+      toggle.textContent = "☀️";
+    }
+  };
+}
+
 // ==================== PAGE INITIALIZATION ====================
 function initPage(namespace) {
   console.log('Initializing page:', namespace);
@@ -326,6 +351,8 @@ function initPage(namespace) {
 
   // Initialize accessibility features
   initAccessibility();
+
+  initThemeToggle();
 
   // Scroll to top
   window.scrollTo(0, 0);
