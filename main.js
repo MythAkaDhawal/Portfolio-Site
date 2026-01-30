@@ -21,96 +21,96 @@ const roles = [
 
 // ==================== VANTA.JS BACKGROUND MANAGER ====================
 const vantaConfigs = {
-home: {
-  effect: 'DOTS',
-  config: {
-    mouseControls: true,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color: 0xe6b87d,          // amber
-    color2: 0x9fb39a,         // sage
-    backgroundColor: 0x0b0c0e,
-    size: 2.8,
-    spacing: 28,
-    showLines: false
-  }
-}
+  home: {
+    effect: 'DOTS',
+    config: {
+      mouseControls: true,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0xe6b87d,
+      color2: 0x9fb39a,
+      backgroundColor: 0x0b0c0e,
+      size: 2.8,
+      spacing: 28,
+      showLines: false
+    }
+  },
 
-about: {
-  effect: 'WAVES',
-  config: {
-    mouseControls: false,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color: 0x9fb39a,
-    shininess: 18,
-    waveHeight: 12,
-    waveSpeed: 0.35,
-    zoom: 0.9
-  }
-}
+  about: {
+    effect: 'WAVES',
+    config: {
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x9fb39a,
+      shininess: 18,
+      waveHeight: 12,
+      waveSpeed: 0.35,
+      zoom: 0.9
+    }
+  },
 
-skills: {
-  effect: 'NET',
-  config: {
-    mouseControls: false,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color: 0x8fa88c,
-    backgroundColor: 0x0b0c0e,
-    points: 6,
-    maxDistance: 18,
-    spacing: 20
-  }
-}
+  skills: {
+    effect: 'NET',
+    config: {
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x8fa88c,
+      backgroundColor: 0x0b0c0e,
+      points: 6,
+      maxDistance: 18,
+      spacing: 20
+    }
+  },
 
-projects: {
-  effect: 'BIRDS',
-  config: {
-    mouseControls: false,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    backgroundColor: 0x0b0c0e,
-    color1: 0xe6b87d,
-    color2: 0x9fb39a,
-    birdSize: 1.1,
-    wingSpan: 22,
-    speedLimit: 3,
-    separation: 50,
-    cohesion: 22
-  }
-}
+  projects: {
+    effect: 'BIRDS',
+    config: {
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      backgroundColor: 0x0b0c0e,
+      color1: 0xe6b87d,
+      color2: 0x9fb39a,
+      birdSize: 1.1,
+      wingSpan: 22,
+      speedLimit: 3,
+      separation: 50,
+      cohesion: 22
+    }
+  },
 
-contact: {
-  effect: 'TOPOLOGY',
-  config: {
-    mouseControls: false,
-    touchControls: false,
-    gyroControls: false,
-    minHeight: 200,
-    minWidth: 200,
-    scale: 1.0,
-    scaleMobile: 1.0,
-    color: 0x8fa88c,
-    backgroundColor: 0x0b0c0e
+  contact: {
+    effect: 'TOPOLOGY',
+    config: {
+      mouseControls: false,
+      touchControls: false,
+      gyroControls: false,
+      minHeight: 200,
+      minWidth: 200,
+      scale: 1.0,
+      scaleMobile: 1.0,
+      color: 0x8fa88c,
+      backgroundColor: 0x0b0c0e
+    }
   }
-}
 };
 
 function initVanta(namespace) {
