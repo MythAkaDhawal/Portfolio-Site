@@ -1,9 +1,4 @@
-// ============================================
-// PORTFOLIO MAIN.JS - CENTRALIZED LOGIC
-// Handles: Barba.js transitions, Vanta.js backgrounds, GSAP animations, typing effect
-// ============================================
 
-// ==================== GLOBAL STATE ====================
 let vantaEffect = null;
 let typedText = null;
 let roleIndex = 0;
@@ -31,9 +26,15 @@ const vantaConfigs = {
       minWidth: 200,
       scale: 1.0,
       scaleMobile: 1.0,
+<<<<<<< HEAD
       color: 0xe6b87d,
       color2: 0x9fb39a,
       backgroundColor: 0x0b0c0e,
+=======
+      color: 0xE54B4B,
+      color2: 0x2C423F,
+      backgroundColor: 0xF7F5F0,
+>>>>>>> 4a057e4 (Update files)
       size: 2.8,
       spacing: 28,
       showLines: false
@@ -50,7 +51,11 @@ const vantaConfigs = {
       minWidth: 200,
       scale: 1.0,
       scaleMobile: 1.0,
+<<<<<<< HEAD
       color: 0x9fb39a,
+=======
+      color: 0xE54B4B,
+>>>>>>> 4a057e4 (Update files)
       shininess: 18,
       waveHeight: 12,
       waveSpeed: 0.35,
@@ -68,8 +73,13 @@ const vantaConfigs = {
       minWidth: 200,
       scale: 1.0,
       scaleMobile: 1.0,
+<<<<<<< HEAD
       color: 0x8fa88c,
       backgroundColor: 0x0b0c0e,
+=======
+      color: 0x2C423F,
+      backgroundColor: 0xF7F5F0,
+>>>>>>> 4a057e4 (Update files)
       points: 6,
       maxDistance: 18,
       spacing: 20
@@ -86,9 +96,15 @@ const vantaConfigs = {
       minWidth: 200,
       scale: 1.0,
       scaleMobile: 1.0,
+<<<<<<< HEAD
       backgroundColor: 0x0b0c0e,
       color1: 0xe6b87d,
       color2: 0x9fb39a,
+=======
+      backgroundColor: 0xF7F5F0,
+      color1: 0xE54B4B,
+      color2: 0x2C423F,
+>>>>>>> 4a057e4 (Update files)
       birdSize: 1.1,
       wingSpan: 22,
       speedLimit: 3,
@@ -107,8 +123,13 @@ const vantaConfigs = {
       minWidth: 200,
       scale: 1.0,
       scaleMobile: 1.0,
+<<<<<<< HEAD
       color: 0x8fa88c,
       backgroundColor: 0x0b0c0e
+=======
+      color: 0x2C423F,
+      backgroundColor: 0xF7F5F0
+>>>>>>> 4a057e4 (Update files)
     }
   }
 };
@@ -149,6 +170,7 @@ function initVanta(namespace) {
     return;
   }
 
+<<<<<<< HEAD
   // Initialize immediately without delay
   try {
     const effectName = config.effect;
@@ -162,6 +184,28 @@ function initVanta(namespace) {
     }
   } catch (error) {
     console.error('Vanta initialization failed:', error);
+=======
+  // Initialize asynchronously to avoid blocking main thread
+  const initHeavyBackground = () => {
+    try {
+      const effectName = config.effect;
+      if (typeof VANTA[effectName] === 'function') {
+        config.config.el = bgElement;
+        vantaEffect = VANTA[effectName](config.config);
+        console.log(`✓ Vanta ${effectName} initialized for ${namespace} (Optimized)`);
+      } else {
+        console.warn(`VANTA.${effectName} is not available`);
+      }
+    } catch (error) {
+      console.error('Vanta initialization failed:', error);
+    }
+  };
+
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initHeavyBackground, { timeout: 1000 });
+  } else {
+    setTimeout(initHeavyBackground, 200);
+>>>>>>> 4a057e4 (Update files)
   }
 }
 
@@ -233,12 +277,23 @@ function initGSAPAnimations() {
 
   // Animate .reveal elements on scroll
   gsap.utils.toArray('.reveal').forEach((elem) => {
+<<<<<<< HEAD
     gsap.to(elem,
       {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: 'power2.out',
+=======
+    gsap.fromTo(elem,
+      { opacity: 0, y: 40, scale: 0.96 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: 'back.out(1.2)',
+>>>>>>> 4a057e4 (Update files)
         scrollTrigger: {
           trigger: elem,
           start: 'top 85%',
@@ -248,6 +303,7 @@ function initGSAPAnimations() {
     );
   });
 
+<<<<<<< HEAD
   // Button hover animations (desktop only)
   if (!isMobile) {
     gsap.utils.toArray('.btn').forEach((btn) => {
@@ -259,6 +315,9 @@ function initGSAPAnimations() {
       });
     });
   }
+=======
+  // Button hover animations are mostly handled by CSS hard-shadows now
+>>>>>>> 4a057e4 (Update files)
 }
 
 // ==================== NAVIGATION ACTIVE STATE ====================
@@ -311,6 +370,7 @@ function initThemeToggle() {
 
     const savedTheme = localStorage.getItem("theme");
 
+<<<<<<< HEAD
     if (savedTheme === "light") {
       document.body.classList.add("light-theme");
       toggle.textContent = "🌙";
@@ -327,11 +387,62 @@ function initThemeToggle() {
       } else {
         localStorage.setItem("theme", "dark");
         toggle.textContent = "☀️";
+=======
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark-theme");
+      toggle.textContent = "☀️";
+    } else {
+      toggle.textContent = "🌙";
+    }
+
+    toggle.onclick = () => {
+      document.body.classList.toggle("dark-theme");
+
+      if (document.body.classList.contains("dark-theme")) {
+        localStorage.setItem("theme", "dark");
+        toggle.textContent = "☀️";
+      } else {
+        localStorage.setItem("theme", "light");
+        toggle.textContent = "🌙";
+>>>>>>> 4a057e4 (Update files)
       }
     };
   }, 50);
 }
 
+<<<<<<< HEAD
+=======
+// ==================== CUSTOM CURSOR ====================
+function initCustomCursor() {
+  const cursor = document.querySelector('.custom-cursor');
+  if (!cursor || isMobile) return;
+
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+
+  const hoverElements = document.querySelectorAll('a, button, .btn');
+  hoverElements.forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+  });
+}
+
+// ==================== VANILLA TILT ====================
+function initVanillaTilt() {
+  if (typeof VanillaTilt !== 'undefined' && !isMobile) {
+    VanillaTilt.init(document.querySelectorAll(".project-card, .skill-card, .project"), {
+      max: 12,
+      speed: 400,
+      glare: false,
+      "max-glare": 0.2,
+      scale: 1.02
+    });
+  }
+}
+
+>>>>>>> 4a057e4 (Update files)
 // ==================== PAGE INITIALIZATION ====================
 function initPage(namespace) {
   console.log('Initializing page:', namespace);
@@ -357,6 +468,11 @@ function initPage(namespace) {
   initAccessibility();
 
   initThemeToggle();
+<<<<<<< HEAD
+=======
+  initCustomCursor();
+  initVanillaTilt();
+>>>>>>> 4a057e4 (Update files)
 
   // Scroll to top
   window.scrollTo(0, 0);
